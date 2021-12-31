@@ -25,43 +25,7 @@ class Cliente extends MY_controller{
         $data['filter'] = $params;
         $data['_view'] = 'cliente/index';
         $this->load->view('layouts/main',$data);
-    }
-
-    // /**
-    //  * @see Adding a new empresa
-    //  */
-    // function add()
-    // {   
-    //     if(isset($_POST) && count($_POST) > 0)     
-    //     {   
-    //         $params = array(                    
-    //                 'id_empresa' => $this->input->post('id_empresa'),
-    //                 'nome' => $this->input->post('nome'),
-    //                 'cpf_cnpj' => $this->input->post('cpf_cnpj'),
-    //                 'data_cadastro' => date('Y-m-d H:i:s'),
-    //                 'data_nascimento' => $this->dateFormaBD($this->input->post('data_nascimento')),
-    //                 'telefone' => $this->input->post('telefone'),
-    //                 'email' => $this->input->post('email'),
-    //                 'cep' => $this->input->post('cep'),
-    //                 'endereco' => $this->input->post('endereco'),
-    //                 'rg' => $this->input->post('rg'),
-    //                 'numero' => $this->input->post('numero')
-    //             );
-            
-    //         $cliente_id = $this->Cliente_model->add_cliente($params);
-    //             redirect('cliente/index');
-    //     }
-    //     else
-    //     {            
-    //         $data['empresas'] = $this->Empresa_model->get_all_empresas();
-    //         $data['_view'] = 'cliente/add';
-    //         $this->load->view('layouts/main',$data);
-    //     }
-    // }  
-
-
-
-                                           
+    }                                  
 
     /**
      * @see Adding a new cliente
