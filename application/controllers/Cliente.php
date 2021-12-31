@@ -97,7 +97,8 @@ class Cliente extends MY_controller{
              }
          }
          else
-         {      
+         {   
+            
              $data['empresas'] = $this->Empresa_model->get_all_empresas();
              $data['_view'] = 'cliente/add';
              $this->load->view('layouts/main',$data);
