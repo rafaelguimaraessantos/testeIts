@@ -70,7 +70,7 @@ class Cliente extends MY_controller{
      {   
          if(isset($_POST) && !empty($_POST))     
          {   
-             $empresa = $this->Empresa_model->get_empresa($this->input->get('id_empresa'));
+             $empresa = $this->Empresa_model->get_empresa($this->input->post('id_empresa'));
               var_dump($empresa);
              die(__FILE__.__LINE__);
              if(!empty($empresa)
