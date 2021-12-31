@@ -58,6 +58,7 @@ class Cliente_model extends CI_Model
         if (!is_null($params['termo'])) {
             $this->db->where("nome LIKE", '%'.$params['termo'].'%');
             $this->db->or_where("cpf_cnpj LIKE", '%'.$params['termo'].'%');
+            $this->db->or_where("replace(data_cadastro , '/', '') LIKE", '%' .$params['termo']. '%');
         }
 
         $this->db->order_by('id_cliente', 'desc');
@@ -68,21 +69,5 @@ class Cliente_model extends CI_Model
         return $this->db->get('clientes')->result_array();
     }
    
-    /**
-     * @see Resposavel por buscar por termos no banco
-    */
-    function findByTermo($termo) {
-
-        $this->db->order_by('id', 'desc');
-        
-        $this->db->select('*');
-        
-        $this->db->from($this->table);
-        $this->db->or_where("replace(replace(cnh, '.', ''), '-', '') LIKE", '%' . str_replace(array('.','-',''), '', $termo) . '%');
-        $this->db->or_where("replace(replace(cpf, '.', ''), '-', '') LIKE", '%' . str_replace(array('.','-',''), '', $termo) . '%');
-        
-        $query = $this->db->get();
-        
-        return $query->result();
-    }
+    
 }

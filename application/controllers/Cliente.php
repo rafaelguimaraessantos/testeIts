@@ -71,10 +71,14 @@ class Cliente extends MY_controller{
          if(isset($_POST) && !empty($_POST))     
          {   
              $empresa = $this->Empresa_model->get_empresa($this->input->post('id_empresa'));
-             var_dump($this->input->post('id_empresa'));
-             die(__FILE__.__LINE__);
+             //  var_dump($empresa);
+             //  echo ("<pre>");
+             // die(__FILE__.__LINE__);
              if(!empty($empresa)
-              && strtoupper($empresa['uf'])!='PR' && strlen($this->input->post('cpf_cnpj'))=='14') {
+              && strtoupper($empresa['uf'])!='PR' &&
+               strlen($this->input->post('cpf_cnpj'))>'14' &&
+                $this->calculaIdade($this->$post['data_nascimento']) >= 18) {
+             
                  $params = array(                    
                      'id_empresa' => $this->input->post('id_empresa'),
                      'nome' => $this->input->post('nome'),
@@ -88,13 +92,14 @@ class Cliente extends MY_controller{
                      'rg' => $this->input->post('rg'),
                      'numero' => $this->input->post('numero')
                  );
-             $idade = calculaIdade($this->$post['data_nascimento']);
-             var_dump($idade);
-             die(__FILE__.__LINE__);
+             
+             
             
                  $cliente_id = $this->Cliente_model->add_cliente($params);
                  redirect('cliente/index');
-             }
+            } else{
+                die('Cadastro não permitido para menores de 18 anos');   
+            }
          }
          else
          {      
@@ -120,7 +125,6 @@ class Cliente extends MY_controller{
 					'id_empresa' => $this->input->post('id_empresa'),
 					'nome' => $this->input->post('nome'),
 					'cpf_cnpj' => $this->input->post('cpf_cnpj'),
-					'data_cadastro' => $this->input->post('data_cadastro'),
                     'data_nascimento' => $this->dateFormaBD($this->input->post('data_nascimento')),
 					'telefone' => $this->input->post('telefone'),
 					'email' => $this->input->post('email'),
@@ -129,7 +133,8 @@ class Cliente extends MY_controller{
                     'rg' => $this->input->post('rg'),
 					'numero' => $this->input->post('numero')
                 );
-
+                // var_dump($params);
+                // die(__LINE__.__FILE__);
                 $this->Cliente_model->update_cliente($id_cliente,$params);            
                 redirect('cliente/index');
             }

@@ -71,6 +71,12 @@
 			<input type="text" name="bairro" placeholder="Bairro" value="<?php echo $this->input->post('bairro'); ?>" class="form-control" id="bairro" />
 		</div>
 	</div>
+	<!-- <div class="form-group">
+		<label for="data_cadastro" class="col-md-4 control-label">Data de cadastro</label>
+		<div class="col-md-4">
+			<input type="text" name="data_cadastro" placeholder="Data de cadastro" value="<?php echo $this->input->post('data_cadastro'); ?>" class="form-control date_time" id="Data de Nascimento" />
+		</div>
+	</div> -->
 	<div class="form-group">
 		<label for="data_nascimento" class="col-md-4 control-label">Data de nascimento</label>
 		<div class="col-md-4">
