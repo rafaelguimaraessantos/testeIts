@@ -6,7 +6,7 @@
 			<select id="id_empresa" aria-describedby="id_empresa" name="id_empresa" class="form-control" required="true">
 				<option value="" selected="true">Selecione a empresa</option>  
 				<?php foreach ($empresas as $key => $empresa) {
-					echo "<option value=".$empresa['id'].">".$empresa['razao_social'].' - '.$empresa['uf']."</option>";
+					echo "<option value=".$empresa['id_empresa'].">".$empresa['razao_social'].' - '.$empresa['uf']."</option>";
 				} ?>
 			</select>
 		</div>

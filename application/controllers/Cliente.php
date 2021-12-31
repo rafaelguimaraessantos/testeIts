@@ -71,6 +71,8 @@ class Cliente extends MY_controller{
          if(isset($_POST) && !empty($_POST))     
          {   
              $empresa = $this->Empresa_model->get_empresa($this->input->post('id_empresa'));
+             var_dump($this->input->post('id_empresa'));
+             die(__FILE__.__LINE__);
              if(!empty($empresa)
               && strtoupper($empresa['uf'])!='PR' && strlen($this->input->post('cpf_cnpj'))=='14') {
                  $params = array(                    
