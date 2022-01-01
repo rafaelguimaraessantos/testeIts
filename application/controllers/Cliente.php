@@ -54,6 +54,9 @@ class Cliente extends MY_controller{
                      'cep' => $this->input->post('cep'),
                      'endereco' => $this->input->post('endereco'),
                      'rg' => $this->input->post('rg'),
+                     'estado' => $this->input->post('estado'),
+                     'cidade' => $this->input->post('cidade'),
+                     'bairro' => $this->input->post('bairro'),
                      'numero' => $this->input->post('numero')
                  );
              
@@ -84,7 +87,8 @@ class Cliente extends MY_controller{
         if(isset($data['cliente']['id_cliente']))
         {
             if(isset($_POST) && count($_POST) > 0)     
-            {   
+            { 
+            
                 $params = array(
 					'id_empresa' => $this->input->post('id_empresa'),
 					'nome' => $this->input->post('nome'),
@@ -95,14 +99,17 @@ class Cliente extends MY_controller{
 					'cep' => $this->input->post('cep'),
 					'endereco' => $this->input->post('endereco'),
                     'rg' => $this->input->post('rg'),
+                    'estado' => $this->input->post('estado'),
+                    'cidade' => $this->input->post('cidade'),
+                    'bairro' => $this->input->post('bairro'),
 					'numero' => $this->input->post('numero')
                 );
                 // var_dump($params);
                 // die(__LINE__.__FILE__);
                 $this->Cliente_model->update_cliente($id_cliente,$params);            
                 redirect('cliente/index');
-            }
-            else
+            
+        }else
             {
                 $data['empresas'] = $this->Empresa_model->get_all_empresas();
                 $data['_view'] = 'cliente/edit';

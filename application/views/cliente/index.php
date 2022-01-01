@@ -3,7 +3,7 @@
 	<div class="form-group col-2 col-sm-12 col-md- col-lg-3">
 		<label></label>
 		<div class="input-group">
-		<input type="text" id="botao" name="termo" class="form-control" value="<?=isset($_GET['termo'])?$_GET['termo']:'';?>" value="<?=(isset($filter['termo'])?$filter['termo']:'')?>" placeholder="Pesquisa nome, CPF ou CNPJ"/>            
+		<input type="text" id="botao" name="termo" class="form-control" value="<?=isset($_GET['termo'])?$_GET['termo']:'';?>" value="<?=(isset($filter['termo'])?$filter['termo']:'')?>" placeholder="Data, CPF ou CNPJ"/>            
 		</div>
 	</div>
 	<div class="col-12 col-sm-6 col-md-6 col-lg-2">
@@ -57,6 +57,9 @@
     </tr>
 	<?php } ?>
 </table>
+<div class="pull-right">
+	<?php echo $this->pagination->create_links(); ?>
+</div>
 <div class="text-center">
 	  <a href="<?php echo site_url('cliente/add'); ?>" class="btn btn-success btn-lg">Adicionar um novo cliente</a>
 </div>
