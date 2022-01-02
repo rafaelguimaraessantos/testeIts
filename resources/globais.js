@@ -6,7 +6,7 @@ $(document).ready(function(){
 	$('.telefone').mask('(##) 0000-0000', {reverse: false});
 	$('.celular').mask("(##) #0000-0000", {reverse: false});
 	$('.cpf').mask('000.000.000-00', {reverse: true});
-	$('#rg').mask('99.999.999-9');
+	$('.rg').mask('99.999.999-9');
 	$('.cnpj').mask('00.000.000/0000-00', {reverse: true});
 });
 var options = {

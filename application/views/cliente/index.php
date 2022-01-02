@@ -9,7 +9,7 @@
 	<div class="col-12 col-sm-6 col-md-6 col-lg-2">
 		<label></label>
 		<div class="input-group">
-			<input type="date" name="data_cadastro" class="form-control" value="<?=isset($_GET['termo'])?$_GET['data_cadastro']:'';?>"/>
+		<input type="date" id="botao" name="data_cadastro" class="form-control" value="<?=isset($_GET['termo'])?$_GET['termo']:'';?>" value="<?=(isset($filter['termo'])?$filter['termo']:'')?>" placeholder="Data, CPF ou CNPJ"/>
 		</div>
 	</div>
 	<div class="form-group col-2 col-sm-12 col-md-3 col-lg-1">

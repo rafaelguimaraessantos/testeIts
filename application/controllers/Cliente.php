@@ -19,7 +19,9 @@ class Cliente extends MY_controller{
     {
         $params['limit'] = RECORDS_PER_PAGE;
         $params['offset'] = ($this->input->get('per_page')) ? $this->input->get('per_page') : 0;
+        $params['data_cadastro'] = ($this->input->get('data_cadastro')) ? $this->input->get('data_cadastro') : null;
         $params['termo'] = ($this->input->get('termo')) ? $this->input->get('termo') : null;
+
         $data['clientes'] = $this->Cliente_model->pesquisar($params);
 
         $data['filter'] = $params;
@@ -64,7 +66,7 @@ class Cliente extends MY_controller{
                  $cliente_id = $this->Cliente_model->add_cliente($params);
                  redirect('cliente/index');
                 } else{
-                    die('Cadastro não permitido para menores de 18 anos');   
+                    die('Cadastro não permitido para menores de 18 anos cujo a empresa seja do PR');   
                 }
         }   else
             {      
@@ -88,7 +90,7 @@ class Cliente extends MY_controller{
             // die(__FILE__.__LINE__);
             if(isset($_POST) && !empty($_POST))   
             {
-                if(strlen($this->input->post('cpf_cnpj'))>'14') {             
+                // if(strlen($this->input->post('cpf_cnpj'))>'14') {             
             
                 $params = array(
 					'id_empresa' => $this->input->post('id_empresa'),
@@ -109,9 +111,9 @@ class Cliente extends MY_controller{
                 // die(__LINE__.__FILE__);
                 $this->Cliente_model->update_cliente($id_cliente,$params);            
                 redirect('cliente/index');
-            }else{
-                die('data');
-            }
+            // }else{
+            //     die('data');
+            // }
         }
             
         else
