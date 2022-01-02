@@ -20,7 +20,13 @@
 	<div class="form-group">
 		<label for="cpf_cnpj" class="col-md-4 control-label">Cpf/Cnpj</label>
 		<div class="col-md-4">
-			<input type="text"  name="cpf_cnpj" placeholder="Cpf/Cnpj" value="<?php echo $this->input->post('cpf_cnpj'); ?> cpf" class="form-control cpfOuCnpj" id="cpf_cnpj" />
+			<input type="text"  name="cpf_cnpj" onblur="cpfCnpj(this.value)" placeholder="Cpf/Cnpj" value="<?php echo $this->input->post('cpf_cnpj'); ?> cpf" class="form-control cpfOuCnpj" id="cpf_cnpj" />
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="telefone" class="col-md-6 control-label">Se for CNPJ marque o check</label>
+		<div class="col-md-4 mb-1">
+			<input class="dtnasccbHabilitarTeclado" asp-for="ConfiguracaoTecnibra.HabilitaTeclado" type="checkbox" id="cbHabilitarTeclado" />
 		</div>
 	</div>
 	<div class="form-group">
@@ -71,25 +77,18 @@
 			<input type="text" name="bairro" placeholder="Bairro" value="<?php echo $this->input->post('bairro'); ?>" class="form-control" id="bairro" />
 		</div>
 	</div>
-	<!-- <div class="form-group">
-		<label for="data_cadastro" class="col-md-4 control-label">Data de cadastro</label>
-		<div class="col-md-4">
-			<input type="text" name="data_cadastro" placeholder="Data de cadastro" value="<?php echo $this->input->post('data_cadastro'); ?>" class="form-control date_time" id="Data de Nascimento" />
-		</div>
-	</div> -->
 	<div class="form-group">
 		<label for="data_nascimento" class="col-md-4 control-label">Data de nascimento</label>
 		<div class="col-md-4">
-			<input type="text" name="data_nascimento" placeholder="Data de nascimento" value="<?php echo $this->input->post('data_nascimento'); ?>" class="form-control date" id="Data de Nascimento" />
+			<input type="text" id="dtnasccbSentidoTeclado" name="data_nascimento" placeholder="Data de nascimento" value="<?php echo $this->input->post('data_nascimento'); ?>" class="form-control date" id="Data de Nascimento" />
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="rg" class="col-md-4 control-label">RG</label>
 		<div class="col-md-4">
-			<input type="text" name="rg" placeholder="RG" value="<?php echo $this->input->post('rg'); ?>" class="form-control rg" id="rg" />
+			<input  id="cbSentidoTeclado" type="text" name="rg" placeholder="RG" value="<?php echo $this->input->post('rg'); ?>" class="form-control rg" id="rg" />
 		</div>
-	</div>
-	
+	</div>	
 	<div class="form-group">
 		<div class="col-sm-offset-4 col-sm-8">
 			<button type="submit" class="btn btn-success">Save</button>

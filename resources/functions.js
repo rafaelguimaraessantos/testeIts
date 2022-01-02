@@ -118,3 +118,26 @@ $(document).ready(function(){
 			});
 	});
 });    
+// function cpfCnpj(valor){
+//     if($('.cpfOuCnpj').length > 14){
+//     	$("#rg").prop("disabled", true); 
+//     	console.log('aqui');
+        
+//     } else {
+//     	console.log('aqui');
+//         window["zoomfield"].disable(true);
+//     }
+// }
+$(document).ready(function(){
+   $("#cbHabilitarTeclado").on("click", function(){
+      $("#cbSentidoTeclado")
+      .prop("disabled", this.checked); 
+   });
+});
+
+$(document).ready(function(){
+   $(".dtnasccbHabilitarTeclado").on("click", function(){
+      $("#dtnasccbSentidoTeclado")
+      .prop("disabled", this.checked); 
+   });
+});

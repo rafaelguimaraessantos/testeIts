@@ -32,49 +32,47 @@ class Cliente extends MY_controller{
      */
      function add()
      {   
-         if(isset($_POST) && !empty($_POST))     
-         {   
-             $empresa = $this->Empresa_model->get_empresa($this->input->post('id_empresa'));
-             //  var_dump($empresa);
-             //  echo ("<pre>");
-             // die(__FILE__.__LINE__);
-             if(!empty($empresa)
-              && strtoupper($empresa['uf'])!='PR' &&
-               strlen($this->input->post('cpf_cnpj'))>'14' &&
-                $this->calculaIdade($this->$post['data_nascimento']) >= 18) {
+        if(isset($_POST) && !empty($_POST)){   
+            $empresa = $this->Empresa_model->get_empresa($this->input->post('id_empresa'));
+            //  var_dump($this->input->post('cpf_cnpj'));
+            //  echo ("<pre>");
+            // die(__FILE__.__LINE__);
+                if(!empty($empresa)
+                    && strtoupper($empresa['uf'])!='PR' &&
+                    strlen($this->input->post('cpf_cnpj'))>'14' &&
+                    $this->calculaIdade($this->$post['data_nascimento']) >= 18) {
              
-                 $params = array(                    
-                     'id_empresa' => $this->input->post('id_empresa'),
-                     'nome' => $this->input->post('nome'),
-                     'cpf_cnpj' => $this->input->post('cpf_cnpj'),
-                     'data_cadastro' => date('Y-m-d H:i:s'),
-                     'data_nascimento' => $this->dateFormaBD($this->input->post('data_nascimento')),
-                     'telefone' => $this->input->post('telefone'),
-                     'email' => $this->input->post('email'),
-                     'cep' => $this->input->post('cep'),
-                     'endereco' => $this->input->post('endereco'),
-                     'rg' => $this->input->post('rg'),
-                     'estado' => $this->input->post('estado'),
-                     'cidade' => $this->input->post('cidade'),
-                     'bairro' => $this->input->post('bairro'),
-                     'numero' => $this->input->post('numero')
-                 );
+                        $params = array(                    
+                            'id_empresa' => $this->input->post('id_empresa'),
+                            'nome' => $this->input->post('nome'),
+                            'cpf_cnpj' => $this->input->post('cpf_cnpj'),
+                            'data_cadastro' => date('Y-m-d H:i:s'),
+                            'data_nascimento' => $this->dateFormaBD($this->input->post('data_nascimento')),
+                            'telefone' => $this->input->post('telefone'),
+                            'email' => $this->input->post('email'),
+                            'cep' => $this->input->post('cep'),
+                            'endereco' => $this->input->post('endereco'),
+                            'rg' => $this->input->post('rg'),
+                            'estado' => $this->input->post('estado'),
+                            'cidade' => $this->input->post('cidade'),
+                            'bairro' => $this->input->post('bairro'),
+                            'numero' => $this->input->post('numero')
+                        );
              
              
             
                  $cliente_id = $this->Cliente_model->add_cliente($params);
                  redirect('cliente/index');
-            } else{
-                die('Cadastro não permitido para menores de 18 anos');   
+                } else{
+                    die('Cadastro não permitido para menores de 18 anos');   
+                }
+        }   else
+            {      
+                $data['empresas'] = $this->Empresa_model->get_all_empresas();
+                $data['_view'] = 'cliente/add';
+                $this->load->view('layouts/main',$data);
             }
-         }
-         else
-         {      
-             $data['empresas'] = $this->Empresa_model->get_all_empresas();
-             $data['_view'] = 'cliente/add';
-             $this->load->view('layouts/main',$data);
-         }
-     }  
+    }  
 
     /**
      * @see Editing a cliente
