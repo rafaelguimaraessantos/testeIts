@@ -18,7 +18,7 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="cpf_cnpj" class="col-md-4 control-label">Cpf Cnpj</label>
+		<label for="cpf_cnpj" class="col-md-4 control-label">CPF CNPJ</label>
 		<div class="col-md-4">
 			<input type="text" name="cpf_cnpj" value="<?php echo ($this->input->post('cpf_cnpj') ? $this->input->post('cpf_cnpj') : $cliente['cpf_cnpj']); ?>" class="form-control cpfOuCnpj" id="cpf_cnpj" />
 		</div>
@@ -37,19 +37,19 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="cep" class="col-md-4 control-label">Cep</label>
+		<label for="cep" class="col-md-4 control-label">CEP</label>
 		<div class="col-md-4">
 			<input type="text" name="cep" value="<?php echo ($this->input->post('cep') ? $this->input->post('cep') : $cliente['cep']); ?>" class="form-control" id="cep" />
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="endereco" class="col-md-4 control-label">Endereco</label>
+		<label for="endereco" class="col-md-4 control-label">Endereço</label>
 		<div class="col-md-4">
 			<input type="text" name="endereco" value="<?php echo ($this->input->post('endereco') ? $this->input->post('endereco') : $cliente['endereco']); ?>" class="form-control" id="endereco" />
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="numero" class="col-md-4 control-label">Numero</label>
+		<label for="numero" class="col-md-4 control-label">Número</label>
 		<div class="col-md-4">
 			<input type="text" name="numero" value="<?php echo ($this->input->post('numero') ? $this->input->post('numero') : $cliente['numero']); ?>" class="form-control" id="numero" />
 		</div>

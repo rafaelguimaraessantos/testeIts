@@ -50,4 +50,12 @@ class MY_Controller extends CI_Controller
         }
         return $theDate;
     }
+    public static function dateFormaBR($data) {
+
+        $arr = explode('-', $data);
+        if (count($arr)>2) {
+            $data = $arr[2].'/'.$arr[1].'/'.$arr[0];
+        }
+        return $data;
+    }
 }

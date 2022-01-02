@@ -86,8 +86,11 @@ class Cliente extends MY_controller{
         
         if(isset($data['cliente']['id_cliente']))
         {
-            if(isset($_POST) && count($_POST) > 0)     
-            { 
+            // var_dump( $empresa);            
+            // die(__FILE__.__LINE__);
+            if(isset($_POST) && !empty($_POST))   
+            {
+                if(strlen($this->input->post('cpf_cnpj'))>'14') {             
             
                 $params = array(
 					'id_empresa' => $this->input->post('id_empresa'),
@@ -108,8 +111,12 @@ class Cliente extends MY_controller{
                 // die(__LINE__.__FILE__);
                 $this->Cliente_model->update_cliente($id_cliente,$params);            
                 redirect('cliente/index');
+            }else{
+                die('data');
+            }
+        }
             
-        }else
+        else
             {
                 $data['empresas'] = $this->Empresa_model->get_all_empresas();
                 $data['_view'] = 'cliente/edit';
