@@ -59,10 +59,8 @@ class Cliente_model extends CI_Model
             $this->db->where("nome LIKE", '%'.$params['termo'].'%');
             $this->db->or_where("cpf_cnpj LIKE", '%'.$params['termo'].'%');
             $this->db->or_where("replace(data_cadastro , '/', '') LIKE", '%' .$params['termo']. '%');
-            
-
         }
-       
+           
         $this->db->order_by('id_cliente', 'desc');
         if(isset($params) && !empty($params))
         {
