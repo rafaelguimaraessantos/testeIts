@@ -57,7 +57,7 @@
 	<div class="form-group">
 		<label for="data_nascimento" class="col-md-4 control-label">Data de nascimento</label>
 		<div class="col-md-4">
-			<input type="text" name="data_nascimento" value="<?php echo ($this->input->post('data_nascimento') ? $this->input->post('data_nascimento') : $cliente['data_nascimento']); ?>" class="form-control date" id="data_nascimento" />
+			<input type="text" name="data_nascimento" value="<?php echo ($this->input->post('data_nascimento') ? $this->input->post('data_nascimento') : $cliente['data_nascimento']); ?>" class="form-control" id="data_nascimento" />
 		</div>
 	</div>
 	<div class="form-group">
